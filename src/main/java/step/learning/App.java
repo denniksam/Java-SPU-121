@@ -1,13 +1,16 @@
 package step.learning;
 
+import step.learning.basics.ArraysLoops;
+import step.learning.basics.Collections;
+import step.learning.basics.Variables;
+
 public class App
 {
     public static void main( String[] args )
     {
-        int x;
-        // System.out.println( "Hello World!!!" );
-        // System.out.println( "Hello World!!!" );
-        System.out.println( "Hello World!!!" );
+        // new Variables().demo() ;
+        // new ArraysLoops().demo() ;
+        new Collections().demo() ;
     }
 }
 /* Встановлення
