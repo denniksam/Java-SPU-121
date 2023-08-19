@@ -3,6 +3,7 @@ package step.learning;
 import step.learning.basics.ArraysLoops;
 import step.learning.basics.Collections;
 import step.learning.basics.Variables;
+import step.learning.oop.Library;
 
 public class App
 {
@@ -10,7 +11,8 @@ public class App
     {
         // new Variables().demo() ;
         // new ArraysLoops().demo() ;
-        new Collections().demo() ;
+        // new Collections().demo() ;
+        new Library().demo() ;
     }
 }
 /* Встановлення
