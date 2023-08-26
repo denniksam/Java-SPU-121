@@ -1,8 +1,13 @@
 package step.learning;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import step.learning.basics.ArraysLoops;
 import step.learning.basics.Collections;
 import step.learning.basics.Variables;
+import step.learning.db.DbApp;
+import step.learning.ioc.ConfigModule;
+import step.learning.ioc.IocApp;
 import step.learning.oop.Library;
 
 public class App
@@ -12,7 +17,9 @@ public class App
         // new Variables().demo() ;
         // new ArraysLoops().demo() ;
         // new Collections().demo() ;
-        new Library().demo() ;
+        // new Library().demo() ;
+        Injector injector = Guice.createInjector( new ConfigModule() ) ;
+        injector.getInstance( DbApp.class ).demo() ;
     }
 }
 /* Встановлення

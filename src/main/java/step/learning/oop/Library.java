@@ -9,9 +9,10 @@ public class Library {
 
     private void fillFunds() {
         funds = new ArrayList<>() ;
-        Book book = new Book() ;
-        book.setAuthor( "D. Knuth" ) ;
-        book.setTitle( "Art of Programming" ) ;
+        // Book book = new Book() ;
+        // book.setAuthor( "D. Knuth" ) ;
+        // book.setTitle( "Art of Programming" ) ;
+        Book book = new Book( "D. Knuth", "Art of Programming" ) ;
         funds.add( book ) ;
         Newspaper newspaper = new Newspaper() ;
         newspaper.setTitle( "Daily Telegraph" ) ;
