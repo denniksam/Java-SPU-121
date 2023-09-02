@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16c9127c-39c2-493a-85a7-117279677726" name="Changes" comment="OOP">
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/db/DbApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/ioc/ConfigModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/ioc/HashService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/ioc/IocApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/ioc/Md5HashService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/ioc/ShaHashService.java" afterDir="false" />
+    <list default="true" id="16c9127c-39c2-493a-85a7-117279677726" name="Changes" comment="Guice, JDBC">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/db/dao/RandomDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/db/dto/RandomRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/services/random/RandomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/services/random/RandomServiceV1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/oop/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/oop/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/oop/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/oop/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/db/DbApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/db/DbApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/step/learning/ioc/ConfigModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/step/learning/ioc/ConfigModule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,13 +56,18 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20230826_0003",
+    "com.google.cloudcode.ide_session_index": "20230902_0001",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "preferences.editor",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RunManager">
@@ -88,7 +91,8 @@
       <workItem from="1690003448171" duration="15870000" />
       <workItem from="1692423347559" duration="15544000" />
       <workItem from="1693026623028" duration="764000" />
-      <workItem from="1693029933750" duration="14563000" />
+      <workItem from="1693029933750" duration="14756000" />
+      <workItem from="1693633038393" duration="15566000" />
     </task>
     <task id="LOCAL-00001" summary="!!! added">
       <created>1689416646338</created>
@@ -111,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692440183172</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Guice, JDBC">
+      <created>1693045183882</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693045183882</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +133,7 @@
     <MESSAGE value="!!! added" />
     <MESSAGE value="Basics" />
     <MESSAGE value="OOP" />
-    <option name="LAST_COMMIT_MESSAGE" value="OOP" />
+    <MESSAGE value="Guice, JDBC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Guice, JDBC" />
   </component>
 </project>

@@ -1,9 +1,18 @@
 package step.learning.ioc;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
+import com.google.inject.name.Named;
 import com.google.inject.name.Names;
+import step.learning.services.random.RandomService;
+import step.learning.services.random.RandomServiceV1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class ConfigModule extends AbstractModule {
+    private Connection localConnection ;   // поле для збереження підключення для метода-провайдера
+
     @Override
     protected void configure() {
         // bind( HashService.class ).to( ShaHashService.class ) ;
@@ -13,6 +22,33 @@ public class ConfigModule extends AbstractModule {
         bind( HashService.class )
                 .annotatedWith( Names.named( "Hash-160" ) )
                 .to( ShaHashService.class ) ;
+        bind( RandomService.class )
+                .to( RandomServiceV1.class ) ;
+    }
+
+    @Provides @Named("Local")
+    private Connection getLocalConnection() {
+        /* Методи-провайдери -- розширення засобів інжекції на випадки,
+           коли треба більше контролю за об'єктами
+           - у служби параметризовані конструктори і треба ними керувати
+           - треба більше контролю за життєвим циклом служб
+           Методи "орієнтуються" на тип повернення (тут - Connection), тобто
+           постачають об'єкти в точки інжекції заданого типу.
+           За необхідності кількох однотипних провайдерів - іменування
+         */
+        if( localConnection == null ) {  // перше звернення - відкриваємо підключення
+            try {
+                Class.forName( "com.mysql.cj.jdbc.Driver" ) ;
+                localConnection = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/java_spu121?useUnicode=true&characterEncoding=UTF-8",
+                        "spu121", "pass121" ) ;
+            }
+            catch( Exception ex ) {
+                System.err.println( ex.getMessage() ) ;
+                return null ;
+            }
+        }
+        return localConnection ;
     }
 }
 

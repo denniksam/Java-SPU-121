@@ -1,44 +1,40 @@
 package step.learning.db;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import com.google.inject.Inject;
+import step.learning.db.dao.RandomDao;
+import step.learning.db.dto.RandomRecord;
+import step.learning.services.random.RandomService;
 
 public class DbApp {
-    private Connection connection ;
+    private final RandomService randomService ;
+    private final RandomDao randomDao ;
+    @Inject
+    public DbApp(
+            RandomService randomService,
+            RandomDao randomDao
+    ) {
+        this.randomService = randomService;
+        this.randomDao = randomDao;
+    }
+
     public void demo() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/java_spu121?useUnicode=true&characterEncoding=UTF-8",
-                    "spu121", "pass121");
-        }
-        catch( Exception ex ) {
-            System.err.println( ex.getMessage() ) ;
-            return ;
-        }
-        System.out.println( "Connection OK" ) ;
+            randomDao.ensureCreated() ;
+            System.out.println( "CREATE OK" ) ;
 
-        String sql = "CREATE TABLE IF NOT EXISTS randoms (" +
-                "id         CHAR(36) PRIMARY KEY," +
-                "rand_int   INT," +
-                "rand_float FLOAT," +
-                "rand_str   TEXT" +
-                ") Engine = InnoDB, DEFAULT CHARSET = utf8" ;
-        try( Statement statement = connection.createStatement() ) {  // ~ SqlCommand (ADO)
-            statement.executeUpdate( sql ) ;
+            randomDao.insertRandom() ;
+            System.out.println( "INSERT OK" ) ;
+
+            for( RandomRecord rec : randomDao.getAll() ) {
+                System.out.println( rec ) ;
+            }
         }
-        catch( Exception ex ) {
+        catch( RuntimeException ex ) {
             System.err.println( ex.getMessage() ) ;
             return ;
         }
-        System.out.println( "CREATE OK" ) ;
-        /*
-        Реалізувати сервіс генерації випадкових даних: ціле число, дробове число, рядок
-        Інжектувати сервіс у DbApp
-        Зформувати запит на INSERT даних у таблицю БД, підставити в нього випадкові дані
-        від сервісу.
-         */
+
+        System.out.println( "-------------------------------" ) ;
     }
 }
 /* JDBC - технологія доступу до даних, аналог ADO.NET
